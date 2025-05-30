@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  whatsapp-onedrive-bot:
+    build: .
+    container_name: whatsapp-onedrive-bot
+    restart: always
+    ports:
+      - "3000:3000"  
+    volumes:
+      - ./auth:/app/auth  
+      - ./downloads:/app/downloads  
+      - ./logs:/app/logs  
+      - ./tokens.db:/app/tokens.db  
+      - ./.env:/app/.env  
+    environment:
+      - NODE_ENV=production
+    networks:
+      - bot-network
+
+networks:
+  bot-network:
+    driver: bridge
