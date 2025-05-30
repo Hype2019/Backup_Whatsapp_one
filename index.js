@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const { default: makeWASocket, useMultiFileAuthState, downloadMediaMessage } = require('@whiskeysockets/baileys');
 const fs = require('fs');
 const path = require('path');
